@@ -4,7 +4,7 @@
 resource "aws_s3_bucket" "website" {
   bucket = var.website_bucket_name
   acl = "public-read"
-
+  force_destroy = true
 
   cors_rule {
     allowed_headers = ["*"]
@@ -36,14 +36,32 @@ EOF
     index_document = "index.html"
     error_document = "index.html"
   }
+
+    #     lifecycle {
+    #
+    #         # Any Terraform plan that includes a destroy of this resource will
+    #         # result in an error message.
+    #         #
+    #         prevent_destroy = true
+    #     }
 }
 
 # AWS S3 bucket for www-redirect
 resource "aws_s3_bucket" "website_redirect" {
   bucket = "www.${var.website_bucket_name}"
   acl = "public-read"
+  force_destroy = true
 
   website {
     redirect_all_requests_to = var.website_bucket_name
   }
+
+    #     lifecycle {
+    #
+    #         # Any Terraform plan that includes a destroy of this resource will
+    #         # result in an error message.
+    #         #
+    #         prevent_destroy = true
+    #     }
+    
 }
