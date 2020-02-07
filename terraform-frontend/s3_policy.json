@@ -9,7 +9,7 @@
                 "AWS": "*"
             },
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::terraform-playground-bucket/*"
+            "Resource": "arn:aws:s3:::${var.website_bucket_name}/*"
         }
     ]
 }
