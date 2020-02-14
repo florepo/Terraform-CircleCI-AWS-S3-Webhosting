@@ -6,6 +6,7 @@ A template/workflow for the automated deployment (including infrastrusture provi
 ![Template - React App on AWS S3 with CircleCI and Terraform](https://i.imgur.com/h1OKYel.jpg)
 
 Terraform > IaC setup of resources on AWS (S3 buckets and policies)
+
 CircleCI > Automated checkout on commit, building and deploy to AWS
 
 #  Notes
